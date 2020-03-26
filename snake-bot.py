@@ -8,7 +8,7 @@ class Snake:
         self.body = [[100, 50], [90, 50], [80, 50]]
         self.direction = "RIGHT"
 
-    def move(self, food_pos):
+    def move(self):
         if self.direction == "RIGHT":
             self.position[0] += 10
 
@@ -61,7 +61,7 @@ class Snake:
             test_snake.position = self.get_head().copy()
             test_snake.body = self.get_body().copy()
             test_snake.direction = d
-            test_snake.move(food_pos)
+            test_snake.move()
             if test_snake.check_collision() == 0:
                 good_dir.append(d)
             
@@ -127,7 +127,7 @@ while True:
 
     snake.direction = snake.find_direction()
 
-    if snake.move(food_pos) == 1:
+    if snake.move() == 1:
         score += 1
         food_spawner.set_food_on_screen(False)
 
